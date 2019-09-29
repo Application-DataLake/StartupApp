@@ -1,28 +1,38 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    path: 'landing',
+    loadChildren: './pages/landing/landing.module#LandingPageModule'
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+    loadChildren: './pages/login/login.module#LoginPageModule'
   },
   {
-    path: 'registration',
-    loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationPageModule)
-  }];
+    path: 'register',
+    loadChildren: './pages/registration/registration.module#RegistrationPageModule'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [AuthGuard]
+  },
+  {
+    path: 'home',
+    loadChildren: './pages/home/home.module#HomePageModule', canActivate: [AuthGuard]
+  },
+  {
+    path: 'list',
+    loadChildren: './pages/list/list.module#ListPageModule', canActivate: [AuthGuard]
+  },
+];
 
 @NgModule({
   imports: [
