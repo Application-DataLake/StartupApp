@@ -18,6 +18,6 @@ import { RegistrationPage } from './registration.page';
       }
     ])
   ],
-  declarations: [RegistrationPage]
+  declarations: []
 })
 export class RegistrationPageModule {}

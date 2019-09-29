@@ -34,4 +34,8 @@ export class LoginPage implements OnInit {
     return await registartionModal.present();
   }
 
+  loginSubmit(form) {
+
+  }
+
 }
