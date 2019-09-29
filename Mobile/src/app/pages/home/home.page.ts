@@ -30,17 +30,4 @@ export class HomePage {
 
   }
 
-  async register() {
-    const registerModal = await this.modalController.create({
-      component: RegistrationPage
-    });
-    return await registerModal.present();
-  }
-
-  async login() {
-    const loginModal = await this.modalController.create({
-      component: LoginPage,
-    });
-    return await loginModal.present();
-  }
 }

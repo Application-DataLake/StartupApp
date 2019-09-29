@@ -23,12 +23,9 @@ import { RegistrationPage } from '../registration/registration.page';
   ],
   declarations: [
     HomePage,
-    LoginPage,
-    RegistrationPage
   ],
   entryComponents: [
-    LoginPage,
-    RegistrationPage
+ 
   ]
 })
 export class HomePageModule { }
