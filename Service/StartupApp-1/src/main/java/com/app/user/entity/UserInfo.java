@@ -1,5 +1,8 @@
 package com.app.user.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -13,9 +16,10 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class UserInfo {
 	
-	
+	@Id
 	private String userId;
 	private String userType;
 	private String firstName;

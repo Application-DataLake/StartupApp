@@ -21,7 +21,7 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
-	@PostMapping(path = "/products", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/products", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProducts(@RequestBody Product product){
 		log.info("Entering getProducts");
 		log.info("UserId passed : {}", product.getUserId());
