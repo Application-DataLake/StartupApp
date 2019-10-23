@@ -1,5 +1,7 @@
 package com.app.user.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -17,8 +19,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UserInfo {
+public class UserInfo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8730171164148480707L;
 	@Id
 	private String userId;
 	private String userType;
@@ -26,9 +32,7 @@ public class UserInfo {
 	@JsonIgnore
 	private String middleName;
 	private String lastName;
-	@JsonIgnore
 	private String email;
-	@JsonIgnore
 	private String phone;
 	private String phoneCountryCode;
 	@JsonIgnore
