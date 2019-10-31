@@ -1,27 +1,34 @@
 package com.app.product;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+import com.app.product.VO.UserProductRequestVO;
 import com.app.product.entity.Product;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
-public class ProductServiceImpl implements IProductService {
-	private List<Product> products;
+public class ProductServiceImpl {
 	
-	@Override
-	public List<Product> getProducts(){
-		return products;
+	private ProductRepository productRepository;
+	
+	
+	public ProductServiceImpl(ProductRepository productRepository) {
+		this.productRepository = productRepository;
 	}
 	
-	@Override
-	public List<Product> getProducts(String userId, String category){
-		return products
-				.parallelStream()
-				.filter( product -> product.getUserId().equals(userId) && product.getCategory().contentEquals(category))
-				.collect(Collectors.toList());
+	public Iterable<Product> getProducts(UserProductRequestVO requestVO){
+		return productRepository.findAll();
 	}
 
+	public List<Product> getProductsForCategory(String userId, String category){
+		return null;
+	}
+	
+	public Product saveProduct(Product product) {
+		return productRepository.save(product);
+	}
+
+
+	public List<Product> getProductsForCategory(String categoryId){
+		return productRepository.findProductsByCategoryId(categoryId);
+	}
+	
 }

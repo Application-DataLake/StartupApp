@@ -1,6 +1,7 @@
 package com.app.category.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,15 +14,13 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryVO implements Serializable{
+public class CategoryWrapper  implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -953109445427398383L;
+	private static final long serialVersionUID = 8206563583223857735L;
 	
-	private String categoryId;
-	private String categoryName;
-	
+	private List<CategoryVO> categories;
 
 }
