@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.app.category.entity.Category;
+import com.app.exception.ApplicationException;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +21,8 @@ public class CategoryService {
 		log.debug("Inside getAllCategories");
 		List<Category> categories = new ArrayList<Category>();
 		categoryReposirtory.findAll().forEach(vo -> categories.add(vo));;
+		if(categories.size()==0)
+			throw new ApplicationException("No Cateegories found");
 		return categories;
 	}
 	
@@ -28,6 +31,9 @@ public class CategoryService {
 		return categoryReposirtory.save(category);
 	}
 	
+	public void deleteCategory(Category category){
+		categoryReposirtory.delete(category);
+	}
 	
 
 }

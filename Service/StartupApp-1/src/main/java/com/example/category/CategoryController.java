@@ -2,6 +2,7 @@ package com.app.category;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,8 +20,6 @@ public class CategoryController {
 	
 	private CategoryService categoryService;
 	
-	
-	
 	public CategoryController(CategoryService categoryService) {
 		this.categoryService = categoryService;
 	}
@@ -34,6 +33,11 @@ public class CategoryController {
 	public Category saveCategories(@RequestBody Category category) {
 		log.info("Input Category = {}", category);
 		return categoryService.saveCategory(category);
+	}
+	
+	@DeleteMapping
+	public void deleteCategory(@RequestBody Category category){
+		categoryService.deleteCategory(category);
 	}
 
 }
